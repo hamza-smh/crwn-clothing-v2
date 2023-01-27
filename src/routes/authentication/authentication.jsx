@@ -1,23 +1,22 @@
 // import {useEffect} from "react";
 // import { getRedirectResult } from "firebase/auth";
 import SignUpForm from '../../components/sign-up/sign-up-form.component.jsx';
+import SignInForm from '../../components/sign-in/sign-in-form.component.jsx';
+
+//import Button from '../../components/button/button.component.jsx';
+// import {
+//   //auth,
+//   signInWithGooglePopup,
+//   //signInWithGoogleRedirect,
+//   createUserDocumentFromAuth,
+// } from '../../utils/firebase/firebase.utils.js';
+
+import "./authentication.styles.scss";
 import Button from '../../components/button/button.component.jsx';
-import {
-  //auth,
-  signInWithGooglePopup,
-  //signInWithGoogleRedirect,
-  createUserDocumentFromAuth,
-} from '../../utils/firebase/firebase.utils.js';
+import { signInWithGooglePopup } from '../../utils/firebase/firebase.utils.js';
 
-import "./sign-in.styles.scss";
+const Authentication = () => {
 
-const SignIn = () => {
-  const logGoogleUser = async () => {
-    const {
-      user
-    } = await signInWithGooglePopup();
-    const userDocRef = await createUserDocumentFromAuth(user);
-  };
 
   // const logGoogleRedirectUser = async () => {
   //   const {user} = await signInWithGoogleRedirect();
@@ -34,19 +33,20 @@ const SignIn = () => {
 
 
   return ( 
-    <div>
-    <h1 className = 'sign-in' > Sign In Page </h1> 
+    <div className='authentication-container'>
+    {/* <h1 className = 'sign-in' > Sign In Page </h1>  */}
     {/* <button type = "button" className = "btn btn-primary" onClick = {logGoogleUser} 
     >Sign in with Google Popup </button>  */}
-    <Button buttontype="google" type = 'submit' > Sign in with Google Popup </Button>
-    <br/> <br/> 
+
+  {/* <Button buttontype = "google" onClick = {signInWithGooglePopup}>Google</Button>     */}
+    
     {
       /* <button type = "button" className = "btn btn-danger"  
               onClick={signInWithGoogleRedirect}>Sign in with Google Redirect</button> */
     }
 
-
-     <SignUpForm /> 
+    <SignInForm />
+    <SignUpForm /> 
     
     
     </div>
@@ -55,4 +55,4 @@ const SignIn = () => {
 };
 
 
-export default SignIn;
+export default Authentication;
