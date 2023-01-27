@@ -9,7 +9,7 @@ $main-color: black;
 
 .group {
   position: relative;
-  margin: 45px 0;
+  margin: 5px 0;
 
   .form-input {
     background: none;
@@ -22,11 +22,10 @@ $main-color: black;
     border: none;
     border-radius: 0;
     border-bottom: 1px solid $sub-color;
-    margin: 25px 0;
+    margin: 15px 0;
 
     &:focus {
       outline: none;
-      background-color: rgba(211, 228, 250, 0.624);
     }
 
     &:focus ~ .form-input-label {
