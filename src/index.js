@@ -14,7 +14,9 @@ render(
     <BrowserRouter>
       <UserProvider>
         <ProductsProvider>
+          <CartProvider>
           <App />
+          </CartProvider>
         </ProductsProvider>
       </UserProvider>
     </BrowserRouter>
