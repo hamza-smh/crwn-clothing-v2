@@ -17,15 +17,11 @@ useEffect(()=>{
     const getCategoriesMap = async()=>{
         const categoryMap = await getCategoriesAndDocuments();
         console.log(categoryMap);
-        setCategoriesMap(categoriesMap);
+        setCategoriesMap(categoryMap);  
     }
     getCategoriesMap();
 }, []); 
-
-
-
-
-
+ 
 //--------------------One time useEffect to upload values , no need to keep setting new values--------------//
     // useEffect(() =>{
     //     addCollectionAndDocuments('catgories', SHOP_DATA)
