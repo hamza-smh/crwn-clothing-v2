@@ -4,7 +4,7 @@ import { UserContext } from '../../context/user.context';
 import { CartContext } from '../../context/cart.context';
 import { ReactComponent as CrwnLogo } from '../../assets/crown.svg';
 //import { FaShoppingCart } from "react-icons/fa";
-import './navigation.styles.scss';
+import {NavigationContainer} from './navigation.styles';
 import { signOutUser } from '../../utils/firebase/firebase.utils';
 import CartIcon from '../../components/cart-icon/cart-icon.component';
 import CartDropDown from '../../components/cart-dropdown/cart-dropdown.component';
@@ -16,7 +16,7 @@ const {isCartOpen} = useContext(CartContext);
 
   return (
     <Fragment>
-      <div className='navigation'>
+      <NavigationContainer>
         <Link className='logo-container' to='/'>
             <CrwnLogo className='logocart' />
         </Link>
@@ -34,7 +34,7 @@ const {isCartOpen} = useContext(CartContext);
               <CartIcon />
         </div>
         {isCartOpen && <CartDropDown />}
-      </div>
+      </NavigationContainer>
       <Outlet />
     </Fragment>
   );
