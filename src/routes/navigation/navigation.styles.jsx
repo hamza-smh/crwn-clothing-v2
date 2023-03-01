@@ -1,7 +1,5 @@
 import styled from "styled-components";
-import {
-  Link
-} from "react-router-dom";
+import {Link} from "react-router-dom";
 
 export const NavigationContainer = styled.div `
   height: 70px;
@@ -17,6 +15,22 @@ export const LogoContainer = styled(Link)
     width: 70px;
     padding: 15px 0px 10px 30px;
 
+`
+export const NavLinkBar =styled.div `
+    width: 50 % ;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 20px;
+`
+
+export const NavLink =styled(Link)
+`
+    padding: 10 px 15 px 0 px 15 px;
+    cursor: pointer;
+    font-size: 23px;
+    font-weight: 1000;
 `
 
 // .navigation {

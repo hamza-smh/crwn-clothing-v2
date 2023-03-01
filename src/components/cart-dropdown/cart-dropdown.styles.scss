@@ -1,3 +1,5 @@
+
+
 .cart-dropdown-container {
   position: absolute;
   width: 240px;
@@ -24,7 +26,37 @@
     
   }
 
-  button {
-    margin-top: auto;
-  }
+  // button {
+  //   margin-top: auto;
+  // }
 }
+
+
+
+// import styled from "styled-components";
+// import Button from "../button/button.component";
+
+// export const CartDropdownContainer = styled.div`
+//     position: absolute;
+//     width: 240 px;
+//     height: 340 px;
+//     display: flex;
+//     flex - direction: column;
+//     padding: 0 px;
+//     border: 1 px solid black;
+//     background - color: white;
+//     top: 90 px;
+//     right: 40 px;
+//     z - index: 5;
+// `
+// export const CartItems = styled.div`
+//     height: 100%;
+//     display: flex;
+//     flex-direction: column;
+//     overflow-y: scroll;
+// `
+
+// export const MyButton =styled(Button)`
+//     margin-top: auto;
+// `
+
