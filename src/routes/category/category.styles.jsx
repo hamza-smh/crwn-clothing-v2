@@ -8,10 +8,11 @@ export const CategoryContainer = styled.div`
     row-gap: 50px;
 `
 export const CategoryTitle = styled.h2`
-    font-size: 42px;
+    font-size: 64px;
     font-weight: 1000;
     margin-bottom: 25px;
     text-align: center;
+    letter-spacing: 25px;
 `
 
 // .category-container{
