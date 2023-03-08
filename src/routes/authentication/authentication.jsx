@@ -11,7 +11,7 @@ import SignInForm from '../../components/sign-in/sign-in-form.component.jsx';
 //   createUserDocumentFromAuth,
 // } from '../../utils/firebase/firebase.utils.js';
 
-import "./authentication.styles.scss";
+import {AuthenticationContainer} from "./authentication.styles.jsx";
 import Button from '../../components/button/button.component.jsx';
 import { signInWithGooglePopup } from '../../utils/firebase/firebase.utils.js';
 
@@ -33,7 +33,7 @@ const Authentication = () => {
 
 
   return ( 
-    <div className='authentication-container'>
+    <AuthenticationContainer>
     {/* <h1 className = 'sign-in' > Sign In Page </h1>  */}
     {/* <button type = "button" className = "btn btn-primary" onClick = {logGoogleUser} 
     >Sign in with Google Popup </button>  */}
@@ -49,7 +49,7 @@ const Authentication = () => {
     <SignUpForm /> 
     
     
-    </div>
+    </AuthenticationContainer>
 
   );
 };

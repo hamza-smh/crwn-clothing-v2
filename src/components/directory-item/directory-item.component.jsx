@@ -1,43 +1,16 @@
-<<<<<<< Updated upstream
-import './directory-item.styles.scss';
+import {Body , BackgroundImage , DirectoryItemContainer} from './directory-item.styles';
 
 const DirectoryItem = ({ category }) => {
   const { imageUrl, title } = category;
   return (
-    <div className='directory-item-container'>
-      <div
-        className='background-image'
-        style={{
-          backgroundImage: `url(${imageUrl})`,
-        }}
-      />
-      <div className='directory-item-body'>
+    <DirectoryItemContainer>
+      <BackgroundImage imageUrl = {imageUrl} />
+      <Body>
         <h2>{title}</h2>
         <p>Shop Now</p>
-      </div>
-    </div>
+      </Body>
+    </DirectoryItemContainer>
   );
 };
 
 export default DirectoryItem;
-=======
-import './directory-item.styles.scss';
-
-const DirectoryItem = ({ category }) => {
-  const { imageUrl, title } = category;
-  return (
-    <div className='directory-item-container'>
-      <div
-        className='background-image'
-        imageUrl = {imageUrl}
-      />
-      <div className='directory-item-body'>
-        <h2>{title}</h2>
-        <p>Shop Now</p>
-      </div>
-    </div>
-  );
-};
-
-export default DirectoryItem;
->>>>>>> Stashed changes

@@ -1,5 +1,5 @@
-<<<<<<< Updated upstream
-import "./category.styles.scss";
+import {CategoryContainer,CategoryTitle} from "./category.styles.jsx";
+
 import { useParams } from "react-router-dom";
 import { useContext , useState, useEffect } from "react";
 import { CategoriesContext } from "../../context/categories.context";
@@ -18,49 +18,16 @@ const Category = () =>{
 
     return(
         <>
-            <h2 className="category-title">{category.toUpperCase()}</h2>
-            <div className="category-container">
+            <CategoryTitle>{category.toUpperCase()}</CategoryTitle>
+            <CategoryContainer>
             {
                 products && //check: only renders when "products" is present
                 products.map((product) => (
                 <ProductCard key={product.id} product={product}/>
                 ))
             }
-            </div>
+            </CategoryContainer>
     </>    
     );
 }
-=======
-import "./category.styles.scss";
-import { useParams } from "react-router-dom";
-import { useContext , useState, useEffect } from "react";
-import { CategoriesContext } from "../../context/categories.context";
-import ProductCard from "../../components/product-card/product-card.component";
-
-const Category = () =>{
-
-    const {category} = useParams();
-    const {categoriesMap} = useContext(CategoriesContext)
-    const [products, setProducts] = useState(categoriesMap[category]);
-
-    useEffect(() => {
-        setProducts(categoriesMap[category]);
-    },[category,categoriesMap])
-
-
-    return(
-        <>
-            <h2 className="category-title">{category.toUpperCase()}</h2>
-            <div className="category-container">
-            {
-                products && //check: only renders when "products" is present
-                products.map((product) => (
-                <ProductCard key={product.id} product={product}/>
-                ))
-            }
-            </div>
-    </>    
-    );
-}
->>>>>>> Stashed changes
 export default Category;
