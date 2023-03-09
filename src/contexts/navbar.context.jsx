@@ -1,16 +1,16 @@
-import { createContext, useState } from "react";
+// import { createContext, useState } from "react";
 
-export const NavBarContext = createContext({
-    isNavBarOpen: false,
-    setIsNavBarOpen: () => {},
-})
+// export const NavBarContext = createContext({
+//     isNavBarOpen: false,
+//     setIsNavBarOpen: () => {},
+// })
 
-export const NavBarProvider = ({children}) =>{
+// export const NavBarProvider = ({children}) =>{
     
-    const [isNavBarOpen, setIsNavBarOpen] = useState(false);
-    const value = {isNavBarOpen,setIsNavBarOpen};
+//     const [isNavBarOpen, setIsNavBarOpen] = useState(false);
+//     const value = {isNavBarOpen,setIsNavBarOpen};
     
-    return(
-        <NavBarContext.Provider value = {value}>{children}</NavBarContext.Provider>
-    )
-}
+//     return(
+//         <NavBarContext.Provider value = {value}>{children}</NavBarContext.Provider>
+//     )
+// }
