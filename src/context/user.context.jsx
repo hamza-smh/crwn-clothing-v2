@@ -1,59 +1,16 @@
-import { createContext , useState , useEffect, useReducer} from "react";
+import { createContext , useState , useEffect} from "react";
 import { onAuthStateChangedListener ,createUserDocumentFromAuth } from "../utils/firebase/firebase.utils";
 
-//actual or the default value     --useContext
+//actual or the default value
 export const UserContext = createContext({
     currentUser : null,
     setCurrentUser : () => null
 });
 
-
-//default value -- useReducer
-export const INITIAL_STATE = {
-    currentUser : null,
-}
-
-export const USER_ACTION_TYPE ={
-    SET_CURRENT_USER : 'SET_CURRENT_USER'
-}
-
-const userReducer = ( state,action) => {
-    const { type ,payload} = action;
-    
-    console.log("dispatch");
-    console.log(action);
-    
-    
-    switch(type){
-        case USER_ACTION_TYPE.SET_CURRENT_USER:
-            return {
-                ...state,                        // spread the rest values except 
-                currentUser: payload,               //value to be overwritten
-            }
-        default:
-            throw new Error(`Unhandled type ${type} in userReducer`)
-    }
-}
-
-
-
 export const UserProvider = ({children}) =>{
-//     const [currentUser,setCurrentUser] = useState(null);     // --for useState
-//     const value = {currentUser , setCurrentUser};
-//  //signOutUser();
-
-    const [state,dispatch] = useReducer(userReducer, INITIAL_STATE);
-    const {currentUser} = state;
-    console.log(currentUser);
-
-    const setCurrentUser = (user) =>{
-        dispatch({ type: USER_ACTION_TYPE.SET_CURRENT_USER , payload: user })
-    }
-
+    const [currentUser,setCurrentUser] = useState(null);
     const value = {currentUser , setCurrentUser};
-
-
-
+    //signOutUser();
 
     useEffect(()=>{
         const unsubscribe = onAuthStateChangedListener((user)=>{ 
@@ -68,19 +25,3 @@ export const UserProvider = ({children}) =>{
     },[]);
     return <UserContext.Provider value = {value} > {children} </UserContext.Provider>
 }
-
-
-
-
-//-----------------------------  User Reducer ------------------------------
-/*
-    const userReducer = (state,action) => {
-        return{
-            curentUser:null
-        };
-
-    }
-
-
-
-*/
