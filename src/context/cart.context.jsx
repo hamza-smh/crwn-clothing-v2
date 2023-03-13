@@ -1,9 +1,6 @@
-import {
-    createContext,
-    useState,
-    useEffect,
-    useReducer
-} from "react";
+import {createContext,useState,useEffect,useReducer} from "react";
+import createAction from "../utils/reducer/reducer.utils.jsx";
+
 
 const addCartItem = (cartItems, productToAdd) => {
 
@@ -72,6 +69,10 @@ export const CartContext = createContext({
     cartTotal: 0
 })
 
+const CART_ACTION_TYPES ={
+    SET_CART_ITEMS: 'SET_CART_ITEMS',
+    SET_IS_CART_OPEN: 'SET_IS_CART_OPEN',
+}
 
 const INITIAL_STATE = {
     isCartOpen: false,
@@ -88,12 +89,17 @@ const CartReducer = (state, action) => {
 
     switch (type) {
 
-        case 'SET_CART_ITEMS':
+        case CART_ACTION_TYPES.SET_CART_ITEMS:
             return {
                 ...state,
                 ...payload
             }
-            default:
+        case CART_ACTION_TYPES.SET_IS_CART_OPEN:
+            return {
+                ...state,
+                isCartOpen: payload,
+            }
+            default: 
                 throw new Error(`Unhandled type of ${type} Error`);
     }
 }
@@ -144,14 +150,21 @@ export const CartProvider = ({
                 newCartTotal
                 }
         */
-        dispatch({
-            type: 'SET_CART_ITEMS',
-            payload: {
-                cartItems: newCartItems,
-                cartTotal: newCartTotal,
-                cartCount: newCartCount
-            },
-        });
+        dispatch(
+            createAction(CART_ACTION_TYPES.SET_CART_ITEMS,
+                {
+                    cartItems: newCartItems,
+                    cartTotal: newCartTotal,
+                    cartCount: newCartCount
+                })
+                                    // {
+                                    // type: CART_ACTION_TYPES.SET_CART_ITEMS,
+                                    // payload: {
+                                    //     cartItems: newCartItems,
+                                    //     cartTotal: newCartTotal,
+                                    //     cartCount: newCartCount
+                                    // },
+        );
     };
 
     // const addItemToCart = (productToAdd) =>{
@@ -179,9 +192,18 @@ export const CartProvider = ({
         updateCartItemsReducer(newCartItems)
     }
 
+    const setIsCartOpen = (bool) =>{
+        dispatch(
+            createAction(CART_ACTION_TYPES.SET_IS_CART_OPEN, bool)
+            // { type: CART_ACTION_TYPES.SET_IS_CART_OPEN , payload:bool }
+             )
+    }
+
+
+
     const value = {
         isCartOpen,
-        setIsCartOpen: () => {},
+        setIsCartOpen,
         addItemToCart,
         removeItemFromCart,
         cancelProduct,
@@ -189,11 +211,7 @@ export const CartProvider = ({
         cartCount,
         cartTotal
     };
-    return ( <
-        CartContext.Provider value = {
-            value
-        } > {
-            children
-        } < /CartContext.Provider>
+    return ( 
+        <CartContext.Provider value = {value}> {children}</CartContext.Provider>
     )
 }
