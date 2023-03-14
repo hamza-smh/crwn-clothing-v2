@@ -82,10 +82,7 @@ const INITIAL_STATE = {
 }
 
 const CartReducer = (state, action) => {
-    const {
-        type,
-        payload
-    } = action;
+    const {type,payload} = action;
 
     switch (type) {
 
@@ -105,9 +102,7 @@ const CartReducer = (state, action) => {
 }
 
 
-export const CartProvider = ({
-    children
-}) => {
+export const CartProvider = ({children}) => {
     // const [isCartOpen,setIsCartOpen]= useState(false);
     // const [cartItems,setCartItems] = useState([]);
     // const [cartCount,setCartCount] = useState(0);
