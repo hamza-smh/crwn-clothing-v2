@@ -15,14 +15,14 @@ import { onAuthStateChangedListener,createUserDocumentFromAuth  } from './utils/
 
 const App = () => {
 
-const dispatch = useDispatch()
+const dispatch = useDispatch();
 
 useEffect(()=>{
         const unsubscribe = onAuthStateChangedListener((user)=>{ 
             if(user){
                     createUserDocumentFromAuth(user);
             }
-            dispatch(setCurrentUser(user);)
+            dispatch(setCurrentUser(user));
             
         });
 
