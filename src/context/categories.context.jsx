@@ -1,3 +1,5 @@
+//This file is deleted at this point
+
 import { createContext, useState,useEffect } from "react";
 
 //----------------------used once when initialised to firestore-------------------------------------------------//
