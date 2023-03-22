@@ -15,7 +15,7 @@ const loggerMiddleware = (store) => (next) => (action) => {
     console.log('Type: ',action.type);
     console.log('Payload: ', action.payload);
     console.log('Current state: ', store.getState());
-// console.log (Useless comment);
+// console.log (Useless comment needs to be removed);
     next(action);
     console.log('New state: ', store.getState());
 }
