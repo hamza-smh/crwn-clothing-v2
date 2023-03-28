@@ -1,3 +1,5 @@
+import { CART_ACTION_TYPES } from "./cart.type";
+
 export const CART_INITIAL_STATE = {
     isCartOpen: false,
     cartItems: [],
@@ -5,7 +7,7 @@ export const CART_INITIAL_STATE = {
     cartTotal: 0
 }
 
-const CartReducer = (state = CART_INITIAL_STATE, action= {} ) => {
+export const CartReducer = (state = CART_INITIAL_STATE, action= {} ) => {
     const {
         type,
         payload
@@ -18,12 +20,12 @@ const CartReducer = (state = CART_INITIAL_STATE, action= {} ) => {
                 ...state,
                 ...payload
             }
-        // case CART_ACTION_TYPES.SET_IS_CART_OPEN:
-        //         return {
-        //             ...state,
-        //             isCartOpen: payload,
-        //         }
+        case CART_ACTION_TYPES.SET_IS_CART_OPEN:
+                return {
+                    ...state,
+                    isCartOpen: payload,
+                }
         default:
-                    state
+                return state;
     }
 }

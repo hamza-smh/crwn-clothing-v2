@@ -77,8 +77,8 @@ const CART_ACTION_TYPES ={
 const INITIAL_STATE = {
     isCartOpen: false,
     cartItems: [],
-    cartCount: 0,
-    cartTotal: 0
+    // cartCount: 0,
+    // cartTotal: 0
 }
 
 const CartReducer = (state, action) => {
