@@ -1,5 +1,5 @@
 import { CART_ACTION_TYPES } from "./cart.type";
-import {createAction} from "../../utils/reducer/reducer.utils";
+import  createAction  from "../../utils/reducer/reducer.utils";
 
 
 
@@ -79,21 +79,19 @@ const cancelCartItem = (cartItems, productToCancel) => {
 
 
 
- const addItemToCart = (productToAdd) => {
-     const newCartItems = addCartItem(cartItems, productToAdd);
-     updateCartItemsReducer(newCartItems)
+ export const addItemToCart = (cartItems,productToAdd) => {
+    const newCartItems = addCartItem(cartItems, productToAdd);
+    return createAction(CART_ACTION_TYPES.SET_CART_ITEMS , newCartItems);
  }
 
- const removeItemFromCart = (cartItemToRemove) => {
+ export const removeItemFromCart = (cartItems, cartItemToRemove) => {
      const newCartItems = removeCartItem(cartItems, cartItemToRemove);
-     updateCartItemsReducer(newCartItems)
+     return createAction(CART_ACTION_TYPES.SET_CART_ITEMS, newCartItems);
  }
- const cancelProduct = (productToCancel) => {
+ export const cancelProduct = (cartItems, productToCancel) => {
      const newCartItems = cancelCartItem(cartItems, productToCancel);
-     updateCartItemsReducer(newCartItems)
+     return createAction(CART_ACTION_TYPES.SET_CART_ITEMS, newCartItems);
  }
 
-
-
-export const setIsCartOpen = (boolean) =>
-    createAction(CART_ACTION_TYPES.SET_IS_CART_OPEN,boolean);
+export const setIsCartOpen = (boolean) => 
+createAction(CART_ACTION_TYPES.SET_IS_CART_OPEN,boolean);
