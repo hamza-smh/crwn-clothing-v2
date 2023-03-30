@@ -4,20 +4,19 @@ import  createAction  from "../../utils/reducer/reducer.utils";
 
 
 
-
-
-
 const addCartItem = (cartItems, productToAdd) => {
-
+    //    if (!Array.isArray(cartItems)) {
+    //        cartItems = []; // if cartItems is not an array, create an empty array
+    //    }
+    console.log(cartItems);
     //Find if cartItems contains productToAdd
-    const existingCartItem = cartItems.find(
-        (cartItem) => cartItem.id == productToAdd.id)
+    const existingCartItem = cartItems.find((cartItem) => cartItem.id === productToAdd.id)
 
 
     //If yes, increment quantity
     if (existingCartItem) {
         return (
-            cartItems.map((cartItem) => cartItem.id == productToAdd.id ? {
+            cartItems.map((cartItem) => cartItem.id === productToAdd.id ? {
                     ...cartItem,
                     quantity: cartItem.quantity + 1
                 } :
@@ -41,14 +40,14 @@ const removeCartItem = (cartItems, cartItemToRemove) => {
 
     //Find if cartItems contains productToAdd
     const existingCartItem = cartItems.find(
-        (cartItem) => cartItem.id == cartItemToRemove.id)
+        (cartItem) => cartItem.id === cartItemToRemove.id)
 
-    if (existingCartItem.quantity == 1) {
+    if (existingCartItem.quantity === 1) {
         return cartItems.filter((cartItem) => cartItem.id !== cartItemToRemove.id)
     }
     //If yes, decrement quantity
     return (
-        cartItems.map((cartItem) => cartItem.id == cartItemToRemove.id ? {
+        cartItems.map((cartItem) => cartItem.id === cartItemToRemove.id ? {
                 ...cartItem,
                 quantity: cartItem.quantity - 1
             } :
@@ -94,4 +93,4 @@ const cancelCartItem = (cartItems, productToCancel) => {
  }
 
 export const setIsCartOpen = (boolean) => 
-createAction(CART_ACTION_TYPES.SET_IS_CART_OPEN,boolean);
+    createAction(CART_ACTION_TYPES.SET_IS_CART_OPEN,boolean);
